@@ -1,0 +1,66 @@
+@mixin grid-context(
+  $columns,
+  $root: false
+) {
+  // Store the current column count so it can be re-set later
+  $old-grid-column-count: $grid-column-count;
+  $grid-column-count: $columns !global;
+
+  @if $root {
+    @at-root { @content; }
+  }
+  @else {
+    @content;
+  }
+
+  $grid-column-count: $old-grid-column-count !global;
+}
+
+@mixin grid-row(
+  $columns: null,
+  $behavior: null,
+  $width: $grid-row-width,
+  $cf: true,
+  $gutter: $grid-column-gutter
+) {
+  $margin: auto;
+
+  @if index($behavior, nest) != null {
+    @include grid-row-nest($gutter);
+
+    @if index($behavior, collapse) != null {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  @else {
+    max-width: $width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @if $cf {
+    @include clearfix;
+  }
+
+  @if $columns != null {
+    @include grid-context($columns) {
+      @content;
+    }
+  }
+}
+
+@mixin grid-row-nest($gutter: $grid-column-gutter) {
+  @if type-of($gutter) == 'number' {
+    $gutter: ($-zf-zero-breakpoint: $gutter);
+  }
+
+  @each $breakpoint, $value in $gutter {
+    $margin: rem-calc($value) / 2 * -1;
+
+    @include breakpoint($breakpoint) {
+      margin-left: $margin;
+      margin-right: $margin;
+    }
+  }
+}

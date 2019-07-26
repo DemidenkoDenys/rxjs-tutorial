@@ -1,0 +1,175 @@
+@mixin -zf-table-children-styles($stripe: $table-stripe) {
+  thead,
+  tbody,
+  tfoot {
+    border: $table-border;
+    background-color: $table-background;
+  }
+
+  caption {
+    font-weight: $global-weight-bold;
+    padding: $table-padding;
+  }
+
+  thead {
+    background: $table-head-background;
+    color: $table-head-font-color;
+  }
+
+  tfoot {
+    background: $table-foot-background;
+    color: $table-foot-font-color;
+  }
+
+  thead,
+  tfoot {
+    tr {
+      background: transparent;
+    }
+
+    th,
+    td {
+      padding: $table-padding;
+      font-weight: $global-weight-bold;
+      text-align: #{$global-left};
+    }
+  }
+
+  tbody {
+    tr {
+      @if $stripe == even {
+        &:nth-child(even) {
+          background-color: $table-striped-background;
+        }
+      }
+
+      @else if $stripe == odd {
+        &:nth-child(odd) {
+          background-color: $table-striped-background;
+        }
+      }
+    }
+
+    th,
+    td {
+      padding: $table-padding;
+    }
+  }
+}
+
+@mixin table(
+  $stripe: $table-stripe,
+  $nest: false
+) {
+  width: 100%;
+  margin-bottom: $global-margin;
+  border-radius: $global-radius;
+
+  @if $nest {
+    @include -zf-table-children-styles($stripe);
+  }
+  @else {
+    @at-root {
+      @include -zf-table-children-styles($stripe);
+    }
+  }
+}
+
+@mixin table-scroll {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+@mixin table-hover {
+  thead tr {
+    &:hover {
+      background-color: $table-head-row-hover;
+    }
+  }
+
+  tfoot tr {
+    &:hover {
+      background-color: $table-foot-row-hover;
+    }
+  }
+
+  tbody tr {
+    &:hover {
+      background-color: $table-row-hover;
+    }
+
+    @if($table-stripe == even) {
+      &:nth-of-type(even):hover {
+        background-color: $table-row-stripe-hover;
+      }
+    }
+
+    @elseif($table-stripe == odd) {
+      &:nth-of-type(odd):hover {
+        background-color: $table-row-stripe-hover;
+      }
+    }
+  }
+}
+
+@mixin table-stack($header: $show-header-for-stacked) {
+  @if $header {
+    thead {
+      th:first-child {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+    }
+  }
+  @else {
+    thead {
+      display: none;
+    }
+  }
+
+  tfoot {
+    display: none;
+  }
+
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  td {
+    border-top: 0;
+  }
+}
+
+@mixin foundation-table($nest: false) {
+  table {
+    @include table($nest: $nest);
+  }
+
+  table.stack {
+    @include breakpoint(medium down) {
+      @include table-stack;
+    }
+  }
+
+  table.scroll {
+    @include table-scroll;
+  }
+
+  table.hover {
+    @include table-hover;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+
+    table {
+      width: auto;
+    }
+  }
+}

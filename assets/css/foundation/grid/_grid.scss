@@ -1,0 +1,31 @@
+$grid-row-width: $global-width !default;
+$grid-column-count: 12 !default;
+$grid-column-gutter: (
+  small: 20px,
+  medium: 30px,
+) !default;
+$grid-column-align-edge: true !default;
+$block-grid-max: 8 !default;
+$-zf-end-float: if($grid-column-align-edge, $global-right, $global-left);
+$grid-column-responsive-gutter: null !default;
+
+@if $grid-column-responsive-gutter {
+  @warn 'Rename $grid-column-responsive-gutter to $grid-column-gutter to remove this warning.';
+  $grid-column-gutter: $grid-column-responsive-gutter;
+}
+
+@if type-of($grid-column-gutter) == 'number' {
+  $grid-column-gutter: (
+    small: $grid-column-gutter,
+  );
+}
+
+@import 'row';
+@import 'column';
+@import 'size';
+@import 'position';
+@import 'gutter';
+@import 'classes';
+@import 'layout';
+
+@import 'flex-grid';

@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            position: relative;
+            margin: 0;
+            background-color: black;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+
+        .row {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        ul a {
+            font-size: 20px;
+            border: 1px solid #fccd10;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fccd10;
+            text-decoration: none;
+        }
+
+        ul a:hover {
+            text-decoration: none;
+            background-color: #fccd10;
+            transition: all .3s linear;
+            color: black;
+        }
+
+        h1,h2,h3,h4,h5,h6{
+            color: #fff;
+        }
+
+        .logo {
+            display: block;
+            margin: 30px 0 0 30px;
+        }
+
+        .logo img{
+            border: none;
+        }
+
+        #version_project {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            margin: 0;
+        }
+
+        #name_project {
+            margin: 10px 0 0;
+            text-align: center;
+        }
+
+        #menu{
+            margin: 20px 0;
+        }
+
+        #menu li {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .wrap {
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="wrap">
+        <a class="logo" href="http://bigdropinc.com">
+            <img src="http://bigdropinc.com/wp-content/themes/bd/images/bigdrop-white.svg" alt="logo"/>
+        </a>
+        <h6 id="version_project">Version: Gulp 4</h6>
+        <div class="row">
+            <h1 id="name_project"></h1>
+            <ul id="menu"></ul>
+        </div>
+    </div>
+</div>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'pages.json', true);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                var pages = JSON.parse(xhr.responseText),
+                    parent = document.getElementById('menu');
+                document.getElementById('name_project').innerHTML = pages[pages.length - 1];
+                for (var i = 0; i < pages.length - 1; i++) {
+                    var li = document.createElement('li'),
+                        a = document.createElement('a'),
+                        text = pages[i].split('/');
+                    a.setAttribute('href', './dist/html/' + pages[i] + '.html');
+                    a.innerHTML = text;
+                    li.appendChild(a);
+                    parent.appendChild(li);
+                }
+            }
+        }
+    };
+</script>
+</body>
+</html>

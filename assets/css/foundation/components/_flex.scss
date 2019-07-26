@@ -1,0 +1,25 @@
+@mixin foundation-flex-classes {
+  @each $hdir, $prop in map-remove($-zf-flex-justify, left) {
+    .align-#{$hdir} {
+      @include flex-align($x: $hdir);
+    }
+  }
+
+  @each $vdir, $prop in $-zf-flex-align {
+    .align-#{$vdir} {
+      @include flex-align($y: $vdir);
+    }
+
+    .align-self-#{$vdir} {
+      @include flex-align-self($y: $vdir);
+    }
+  }
+
+  @include -zf-each-breakpoint {
+    @for $i from 1 through 6 {
+      .#{$-zf-size}-order-#{$i} {
+        @include flex-order($i);
+      }
+    }
+  }
+}

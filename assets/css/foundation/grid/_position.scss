@@ -1,0 +1,52 @@
+@mixin grid-column-position($position) {
+  @if type-of($position) == 'number' {
+    $offset: percentage($position / $grid-column-count);
+
+    position: relative;
+    #{$global-left}: $offset;
+  }
+  @else if $position == center {
+    &, &:last-child:not(:first-child) {
+      float: none;
+      clear: both;
+    }
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @else {
+    @warn 'Wrong syntax for grid-column-position(). Enter a positive or negative number, or center.';
+  }
+}
+
+@mixin grid-column-unposition {
+  position: static;
+  margin-left: 0;
+  margin-right: 0;
+  float: left;
+}
+
+@mixin grid-column-offset($n) {
+  margin-#{$global-left}: grid-column($n);
+}
+
+@mixin grid-column-end {
+  &:last-child:last-child {
+    float: $global-left;
+  }
+}
+
+@mixin grid-col-pos($position) {
+  @include grid-column-position($position);
+}
+
+@mixin grid-col-unpos {
+  @include grid-column-unposition;
+}
+
+@mixin grid-col-off($n) {
+  @include grid-column-offset($n);
+}
+
+@mixin grid-col-end {
+  @include grid-column-end;
+}

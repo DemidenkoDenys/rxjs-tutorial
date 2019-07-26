@@ -1,0 +1,18 @@
+@mixin grid-column-collapse {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@mixin grid-column-uncollapse($gutter: $grid-column-gutter) {
+  $gutter: rem-calc($gutter) / 2;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@mixin grid-col-collapse {
+  @include grid-column-collapse;
+}
+
+@mixin grid-col-uncollapse($gutter: $grid-column-gutter) {
+  @include grid-column-uncollapse($gutter);
+}

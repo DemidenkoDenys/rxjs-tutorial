@@ -1,0 +1,14 @@
+@import 'checkbox';
+@import 'input-group';
+@import 'label';
+@import 'select';
+@import 'text';
+
+@mixin foundation-forms {
+  @include foundation-form-checkbox;
+  @include foundation-input-group;
+  @include foundation-form-label;
+  @include foundation-form-select;
+  @include foundation-form-text;
+
+}

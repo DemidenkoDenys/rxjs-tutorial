@@ -1,0 +1,105 @@
+@mixin form-element {
+  $height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
+
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: $height;
+  padding: $form-spacing / 2;
+  border: $input-border;
+  margin: 0 0 $form-spacing;
+
+  font-family: $input-font-family;
+  font-size: $input-font-size;
+  color: $input-color;
+  background-color: $input-background;
+  box-shadow: $input-shadow;
+  border-radius: $input-radius;
+
+  @if has-value($input-transition) {
+    transition: $input-transition;
+  }
+
+  &:focus {
+    border: $input-border-focus;
+    background-color: $input-background-focus;
+    outline: none;
+    box-shadow: $input-shadow-focus;
+
+    @if has-value($input-transition) {
+      transition: $input-transition;
+    }
+  }
+}
+
+@mixin foundation-form-text {
+  #{text-inputs()},
+  textarea {
+    @include form-element;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  textarea {
+    max-width: 100%;
+
+    &[rows] {
+      height: auto;
+    }
+  }
+
+  input,
+  textarea {
+    &::-webkit-input-placeholder       {opacity: 1; color: $black;}
+    &::-moz-placeholder                {opacity: 1; color: $black;}
+    &:-moz-placeholder                 {opacity: 1; color: $black;}
+    &:-ms-input-placeholder            {opacity: 1; color: $black;}
+
+    &.wpcf7-not-valid{
+      &::-webkit-input-placeholder       {opacity: 1; color: $white;}
+      &::-moz-placeholder                {opacity: 1; color: $white;}
+      &:-moz-placeholder                 {opacity: 1; color: $white;}
+      &:-ms-input-placeholder            {opacity: 1; color: $white;}
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: $input-background-disabled;
+      cursor: $input-cursor-disabled;
+    }
+  }
+
+  [type='submit'],
+  [type='button'] {
+    border-radius: $button-radius;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  input[type='search'] {
+    box-sizing: border-box;
+  }
+
+  [type='number'] {
+    @if not $input-number-spinners {
+      -moz-appearance: textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}
+
+span.wpcf7-not-valid,
+span.wpcf7-not-valid-tip,
+span.ErrorField,
+span.error{
+
+}
+
+.wpcf7-response-output{
+
+}

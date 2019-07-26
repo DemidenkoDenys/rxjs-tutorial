@@ -1,0 +1,222 @@
+@mixin flex-grid-row(
+  $behavior: null,
+  $width: $grid-row-width,
+  $columns: null,
+  $base: true,
+  $gutter: $grid-column-gutter
+) {
+  $margin: auto;
+
+  @if index($behavior, nest) != null {
+    @include grid-row-nest($gutter);
+
+    @if index($behavior, collapse) != null {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  @else {
+    max-width: $width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @if $base {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  @if $columns != null {
+    @include grid-context($columns, $base) {
+      @content;
+    }
+  }
+}
+
+@function flex-grid-column($columns: null) {
+  $flex: 1 1 0px;
+
+  @if $columns == shrink {
+    $flex: 0 0 auto;
+  }
+  @else if $columns != null {
+    $flex: 0 0 grid-column($columns);
+  }
+
+  @return $flex;
+}
+
+@mixin flex-grid-column(
+  $columns: null,
+  $gutter: $grid-column-gutter
+) {
+
+  flex: flex-grid-column($columns);
+
+  @if type-of($gutter) == 'map' {
+    @each $breakpoint, $value in $gutter {
+      $padding: rem-calc($value) / 2;
+
+      @include breakpoint($breakpoint) {
+        padding-left: $padding;
+        padding-right: $padding;
+      }
+    }
+  }
+  @else if type-of($gutter) == 'number' and strip-unit($gutter) > 0 {
+    $padding: rem-calc($gutter) / 2;
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+  @if $columns == null {
+    min-width: initial;
+  }
+
+  @if $columns != null and $columns != shrink {
+    max-width: grid-column($columns);
+  }
+}
+
+@mixin flex-grid-layout(
+  $n,
+  $selector: '.column'
+) {
+  flex-wrap: wrap;
+
+  > #{$selector} {
+    $pct: percentage(1/$n);
+
+    flex: 0 0 $pct;
+    max-width: $pct;
+  }
+}
+
+@mixin flex-grid-order($order: 0) {
+  @warn 'This mixin is being replaced by flex-order(). flex-grid-order() will be removed in Foundation 6.3.';
+  @include flex-order($order);
+}
+
+@mixin flex-grid-row-align($x: null, $y: null) {
+  @warn 'This mixin is being replaced by flex-align(). flex-grid-row-align() will be removed in Foundation 6.3.';
+  @include flex-align($x, $y);
+}
+
+@mixin flex-grid-column-align($y: null) {
+  @warn 'This mixin is being replaced by flex-align-self(). flex-grid-column-align() will be removed in Foundation 6.3.';
+  @include flex-align-self($y);
+}
+
+@mixin foundation-flex-grid {
+  .row {
+    @include flex-grid-row;
+
+    & .row {
+      @include flex-grid-row(nest, $base: false);
+    }
+
+    &.expanded {
+      max-width: none;
+    }
+
+    &.collapse {
+      > .column {
+        @include grid-col-collapse;
+      }
+    }
+
+    &.is-collapse-child,
+    &.collapse > .column > .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .column {
+    @include flex-grid-column;
+  }
+
+  .column.row.row {
+    float: none;
+    display: block;
+  }
+
+  .row .column.row.row {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @include -zf-each-breakpoint {
+    @for $i from 1 through $grid-column-count {
+      .#{$-zf-size}-#{$i} {
+        flex: flex-grid-column($i);
+        max-width: grid-column($i);
+      }
+
+      $o: $i - 1;
+
+      .#{$-zf-size}-offset-#{$o} {
+        @include grid-column-offset($o);
+      }
+    }
+
+    @for $i from 1 through 6 {
+      .#{$-zf-size}-order-#{$i} {
+        @include flex-order($i);
+      }
+    }
+
+    @for $i from 1 through $block-grid-max {
+      .#{$-zf-size}-up-#{$i} {
+        @include flex-grid-layout($i);
+      }
+    }
+
+    @if $-zf-size != $-zf-zero-breakpoint {
+      @include breakpoint($-zf-size) {
+        .#{$-zf-size}-expand {
+          flex: flex-grid-column();
+        }
+      }
+
+      @at-root (without: media) {
+        .row.#{$-zf-size}-unstack {
+          > .column {
+            flex: flex-grid-column(100%);
+
+            @include breakpoint($-zf-size) {
+              flex: flex-grid-column();
+            }
+          }
+        }
+      }
+    }
+
+    .#{$-zf-size}-collapse {
+      > .column { @include grid-col-collapse; }
+    }
+
+    .#{$-zf-size}-uncollapse {
+      $gutter: -zf-get-bp-val($grid-column-gutter, $-zf-size);
+
+      > .column { @include grid-col-uncollapse($gutter); }
+    }
+  }
+
+  .shrink {
+    flex: flex-grid-column(shrink);
+    max-width: 100%;
+  }
+
+  @each $vdir, $prop in $-zf-flex-align {
+    .column.align-#{$vdir} {
+      @include flex-align-self($vdir);
+    }
+  }
+
+  .columns {
+    @extend .column;
+  }
+}
