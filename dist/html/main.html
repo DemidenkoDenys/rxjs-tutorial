@@ -10,7 +10,12 @@
         sizes="32x32">-->
         <!--<link rel="icon" type="image/png" href="../images/png/favicon64.png"
         sizes="64x64">-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'
+        type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="../css/style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <title>RxJs animated tutorial</title>
     </head>
     
@@ -20,84 +25,289 @@
                 <header>
                      <h1>RXJS animated tutorial</h1>
                 </header>
-                <nav id="menu sidebar-menu">
-                    <ul class="menu-list creation">
-                        <li><a href="creation">Creation</a>
+                <div id="menu sidebar-menu">
+                    <ul class="collapsible">
+                        <li>
+                            <div class="collapsible-header"> <i class="material-icons">add_circle_outline</i>Creation <span class="badge">12</span>
 
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="collection"> <a href="#!" class="collection-item"><i class="material-icons">more_horiz</i>of<span class="badge"></span></a>
+                                    <a
+                                    href="#!" class="collection-item"><i class="material-icons">view_comfy</i>from<span class="badge"></span>
+
+                                        </a> <a href="#!" class="collection-item"><i class="material-icons">clear</i>empty<span class="badge"></span></a>
+                                        <a
+                                        href="#!" class="collection-item"><i class="material-icons">settings_ethernet</i>range<span class="badge"></span>
+
+                                            </a> <a href="#!" class="collection-item"><i class="material-icons">history</i>interval<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">compare_arrows</i>generate<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">timer</i>timer<span class="badge"></span></a>
+                                            <a
+                                            href="#!" class="collection-item"><i class="material-icons">notifications_active</i>fromEvent<span class="badge"></span>
+
+                                                </a> <a href="#!" class="collection-item"><i class="material-icons">golf_course</i>create<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons"></i>defer<span class="badge"></span></a>
+                                                <a
+                                                href="#!" class="collection-item"><i class="material-icons">http</i>ajax<span class="badge"></span>
+
+                                                    </a> <a href="#!" class="collection-item"><i class="material-icons">info_outline</i>throw<span
+
+              class="badge"></span></a>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="of">of</a>
+                        <li>
+                            <div class="collapsible-header"> <i class="material-icons">call_split</i>Conditional <span class="badge">4</span>
 
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="collection"> <a href="#!" class="collection-item"><i class="material-icons">flip_to_front</i> defaultIfEmpty<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">done_all</i>every<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">device_hub</i>iif<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">compare</i>sequenceEqual<span
+
+              class="badge"></span></a>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="from">from</a>
+                        <li>
+                            <div class="collapsible-header"> <i class="material-icons">details</i>Filtering <span class="badge">22</span>
 
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="collection"> <a href="#!" class="collection-item"><i class="material-icons"></i>audit<span class="badge"></span></a>
+                                    <a
+                                    href="#!" class="collection-item"><i class="material-icons"></i>auditTime<span class="badge"></span>
+
+                                        </a> <a href="#!" class="collection-item"><i class="material-icons">power_input</i>debounce<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">replay_30</i>debounceTime<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">hdr_strong</i>distinctUntilChanged<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">hdr_weak</i>distinctUntilKeyChanged<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">filter_list</i>filter<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">search</i>find<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">repeat_one</i>first<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">layers_clear</i>ignoreElements<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">last_page</i>last<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons"></i>sample<span class="badge"></span></a>
+                                        <a
+                                        href="#!" class="collection-item"><i class="material-icons">gps_fixed</i>single<span class="badge"></span>
+
+                                            </a> <a href="#!" class="collection-item"><i class="material-icons">flip</i>skip<span class="badge"></span></a>
+                                            <a
+                                            href="#!" class="collection-item"><i class="material-icons"></i>skipUntil<span class="badge"></span>
+
+                                                </a> <a href="#!" class="collection-item"><i class="material-icons"></i>skipWhile<span class="badge"></span></a>
+                                                <a
+                                                href="#!" class="collection-item"><i class="material-icons">done</i>take<span class="badge"></span>
+
+                                                    </a> <a href="#!" class="collection-item"><i class="material-icons">keyboard_tab</i>takeLast<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">low_priority</i>takeUntil<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">low_priority</i>takeWhile<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">ac_unit</i>throttle<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">replay_5</i>throttleTime<span
+
+              class="badge"></span></a>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="empty">empty</a>
+                        <li>
+                            <div class="collapsible-header"> <i class="material-icons">settings</i>Utility <span class="badge">13</span>
 
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="collection"> <a href="#!" class="collection-item"><i class="material-icons"></i>tap / do<span class="badge"></span></a>
+                                    <a
+                                    href="#!" class="collection-item"><i class="material-icons"></i>delay<span class="badge"></span>
+
+                                        </a> <a href="#!" class="collection-item"><i class="material-icons"></i>delayWhen<span class="badge"></span></a>
+                                        <a
+                                        href="#!" class="collection-item"><i class="material-icons"></i>dematerialize<span class="badge"></span>
+
+                                            </a> <a href="#!" class="collection-item"><i class="material-icons">power_settings_new</i>finalize / finally<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons"></i>let<span class="badge"></span></a>
+                                            <a
+                                            href="#!" class="collection-item"><i class="material-icons">repeat</i>repeat<span class="badge"></span>
+
+                                                </a> <a href="#!" class="collection-item"><i class="material-icons">av_timer</i>timeInterval<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">replay_10</i>timeout<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons"></i>timeoutWith<span class="badge"></span></a>
+                                                <a
+                                                href="#!" class="collection-item"><i class="material-icons"></i>toPromise<span class="badge"></span>
+
+                                                    </a>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="range">range</a>
+                        <li>
+                            <div class="collapsible-header"> <i class="material-icons">transform</i>Transformation <span class="badge">26</span>
 
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="collection"> <a href="#!" class="collection-item"><i class="material-icons">sim_card</i>buffer<span class="badge"></span></a>
+                                    <a
+                                    href="#!" class="collection-item"><i class="material-icons">filter_9_plus</i>bufferCount<span class="badge"></span>
+
+                                        </a> <a href="#!" class="collection-item"><i class="material-icons">av_timer</i>bufferTime<span class="badge"></span></a>
+                                        <a
+                                        href="#!" class="collection-item"><i class="material-icons">dashboard</i>bufferToggle<span class="badge"></span>
+
+                                            </a> <a href="#!" class="collection-item"><i class="material-icons">dialpad</i>bufferWhen<span class="badge"></span></a>
+                                            <a
+                                            href="#!" class="collection-item"><i class="material-icons"></i>concatMap<span class="badge"></span>
+
+                                                </a> <a href="#!" class="collection-item"><i class="material-icons"></i>concatMapTo<span class="badge"></span></a>
+                                                <a
+                                                href="#!" class="collection-item"><i class="material-icons"></i>exhaustMap<span class="badge"></span>
+
+                                                    </a> <a href="#!" class="collection-item"><i class="material-icons"></i>expand<span class="badge"></span></a>
+                                                    <a
+                                                    href="#!" class="collection-item"><i class="material-icons"></i>groupBy<span class="badge"></span>
+
+                                                        </a> <a href="#!" class="collection-item"><i class="material-icons"></i>map<span class="badge"></span></a>
+                                                        <a
+                                                        href="#!" class="collection-item"><i class="material-icons"></i>mapTo<span class="badge"></span>
+
+                                                            </a> <a href="#!" class="collection-item"><i class="material-icons"></i>mergeMap / flatMap<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons"></i>mergeScan<span class="badge"></span></a>
+                                                            <a
+                                                            href="#!" class="collection-item"><i class="material-icons"></i>partition<span class="badge"></span>
+
+                                                                </a> <a href="#!" class="collection-item"><i class="material-icons">view_list</i>pluck<span class="badge"></span></a>
+                                                                <a
+                                                                href="#!" class="collection-item"><i class="material-icons">trending_down</i>reduce<span class="badge"></span>
+
+                                                                    </a> <a href="#!" class="collection-item"><i class="material-icons">search</i>scan<span class="badge"></span></a>
+                                                                    <a
+                                                                    href="#!" class="collection-item"><i class="material-icons">redo</i>switchMap<span class="badge"></span>
+
+                                                                        </a> <a href="#!" class="collection-item"><i class="material-icons"></i>switchMapTo<span class="badge"></span></a>
+                                                                        <a
+                                                                        href="#!" class="collection-item"><i class="material-icons"></i>toArray<span class="badge"></span>
+
+                                                                            </a> <a href="#!" class="collection-item"><i class="material-icons"></i>window<span class="badge"></span></a>
+                                                                            <a
+                                                                            href="#!" class="collection-item"><i class="material-icons"></i>windowCount<span class="badge"></span>
+
+                                                                                </a> <a href="#!" class="collection-item"><i class="material-icons"></i>windowTime<span class="badge"></span></a>
+                                                                                <a
+                                                                                href="#!" class="collection-item"><i class="material-icons"></i>windowToggle<span class="badge"></span>
+
+                                                                                    </a> <a href="#!" class="collection-item"><i class="material-icons"></i>windowWhen<span class="badge"></span></a>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="interval">interval</a>
+                        <li>
+                            <div class="collapsible-header"> <i class="material-icons">merge_type</i>Combination <span class="badge">12</span>
 
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="collection"> <a href="#!" class="collection-item"><i class="material-icons"></i>combineAll<span class="badge"></span></a>
+                                    <a
+                                    href="#!" class="collection-item"><i class="material-icons"></i>combineLatest<span class="badge"></span>
+
+                                        </a> <a href="#!" class="collection-item"><i class="material-icons"></i>concat<span class="badge"></span></a>
+                                        <a
+                                        href="#!" class="collection-item"><i class="material-icons"></i>concatAll<span class="badge"></span>
+
+                                            </a> <a href="#!" class="collection-item"><i class="material-icons"></i>endWith<span class="badge"></span></a>
+                                            <a
+                                            href="#!" class="collection-item"><i class="material-icons"></i>forkJoin<span class="badge"></span>
+
+                                                </a> <a href="#!" class="collection-item"><i class="material-iconsmirror vertical">merge_type</i>merge<span class="badge"></span></a>
+                                                <a
+                                                href="#!" class="collection-item"><i class="material-iconsmirror vertical">merge_type</i>mergeAll<span class="badge"></span>
+
+                                                    </a> <a href="#!" class="collection-item"><i class="material-icons">group</i>pairwise<span class="badge"></span></a>
+                                                    <a
+                                                    href="#!" class="collection-item"><i class="material-icons">motorcycle</i>race<span class="badge"></span>
+
+                                                        </a> <a href="#!" class="collection-item"><i class="material-icons"></i>startWith<span class="badge"></span></a>
+                                                        <a
+                                                        href="#!" class="collection-item"><i class="material-icons"></i>withLatestFrom<span class="badge"></span>
+
+                                                            </a> <a href="#!" class="collection-item"><i class="material-icons mirror vertical">merge_type</i>zip<span class="badge"></span></a>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="generate">generate</a>
+                        <li>
+                            <div class="collapsible-header"> <i class="material-icons">low_priority</i>Multicasting <span class="badge">4</span>
 
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="collection"> <a href="#!" class="collection-item"><i class="material-icons">wifi</i>publish<span class="badge"></span></a>
+                                    <a
+                                    href="#!" class="collection-item"><i class="material-icons"></i>multicast<span class="badge"></span>
+
+                                        </a> <a href="#!" class="collection-item"><i class="material-icons">wifi_tethering</i>share<span
+
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">track_changes</i>shareReplay<span class="badge"></span></a>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="timer">timer</a>
+                        <li>
+                            <div class="collapsible-header"> <i class="material-icons">error_outline</i>Error Handling <span class="badge">3</span>
 
-                        </li>
-                        <li><a href="fromEvent">fromEvent</a>
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="collection"> <a href="#!" class="collection-item"><i class="material-icons"></i>catch / catchError<span
 
-                        </li>
-                        <li><a href="create">create</a>
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons">sync_problem</i>retry<span
 
-                        </li>
-                        <li><a href="defer">defer</a>
-
-                        </li>
-                        <li><a href="ajax">ajax</a>
-
-                        </li>
-                        <li><a href="throw">throw</a>
-
+              class="badge"></span></a> <a href="#!" class="collection-item"><i class="material-icons"></i>retryWhen<span class="badge"></span></a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
-                    <ul class="menu-list utility">
-                        <li><a href="tapdo">tap / do</a>
+                    <!--<ul class="menu-list utility">
 
-                        </li>
-                        <li><a href="delay">delay</a>
+    <li><a href="tapdo">tap / do</a></li>
 
-                        </li>
-                        <li><a href="delayWhen">delayWhen</a>
+    <li><a href="delay">delay</a></li>
 
-                        </li>
-                        <li><a href="dematerialize">dematerialize</a>
+    <li><a href="delayWhen">delayWhen</a></li>
 
-                        </li>
-                        <li><a href="finalize / finally">finalize / finally</a>
+    <li><a href="dematerialize">dematerialize</a></li>
 
-                        </li>
-                        <li><a href="let">let</a>
+    <li><a href="finalize / finally">finalize / finally</a></li>
 
-                        </li>
-                        <li><a href="repeat">repeat</a>
+    <li><a href="let">let</a></li>
 
-                        </li>
-                        <li><a href="timeInterval">timeInterval</a>
+    <li><a href="repeat">repeat</a></li>
 
-                        </li>
-                        <li><a href="timeout">timeout</a>
+    <li><a href="timeInterval">timeInterval</a></li>
 
-                        </li>
-                        <li><a href="timeoutWith">timeoutWith</a>
+    <li><a href="timeout">timeout</a></li>
 
-                        </li>
-                        <li><a href="toPromise">toPromise</a>
+    <li><a href="timeoutWith">timeoutWith</a></li>
 
-                        </li>
-                    </ul>
-                </nav>
+    <li><a href="toPromise">toPromise</a></li>
+
+  </ul> -->
+                </div>
             </section>
             <section class="commands">
                 <header>
@@ -122,14 +332,23 @@
                 <article class="animations">
                     <ul class="animation-list">
                         <li class="animation of">
-                            <p>of(10, 20, 'any', 'value', true, [1, 2, 3], {})</p>
+                             <h2>of(1, 3, 10, 'a', 'v', [], {})</h2>
                             <div class="timeline">
+                                <p>1</p>
+                                <p>3</p>
                                 <p>10</p>
-                                <p>20</p>
-                                <p>'any'</p>
-                                <p>'value'</p>
-                                <p>true</p>
-                                <p>[1, 2, 3]</p>
+                                <p>'a'</p>
+                                <p>'v'</p>
+                                <p>[]</p>
+                                <p>{}</p>
+                            </div>
+                            <div class="console">
+                                <p>1</p>
+                                <p>3</p>
+                                <p>10</p>
+                                <p>'a'</p>
+                                <p>'v'</p>
+                                <p>[]</p>
                                 <p>{}</p>
                             </div>
                         </li>

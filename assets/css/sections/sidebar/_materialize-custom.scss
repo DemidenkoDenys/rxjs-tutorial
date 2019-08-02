@@ -1,0 +1,22 @@
+.collapsible-body {
+    padding: 0;
+}
+
+.collection-item {
+    i:first-child:not(:empty) {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+}
+
+.material-icons {
+    &.mirror {
+        &.vertical {
+            transform: scale(1, -1);
+        }
+
+        &.horizontal {
+            transform: scale(-1, 1);
+        } 
+    }
+}

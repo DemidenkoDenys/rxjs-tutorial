@@ -1,5 +1,6 @@
 import GLOBAL from "./modules/global";
 import HOME from "./modules/HOME";
+import MAIN from "./modules/main";
 
 document.body.className += ('ontouchstart' in window) ? 'touch' : 'no-touch';
 
@@ -11,6 +12,9 @@ if(global.vars !== undefined) {
     switch (global.vars.page) {
         case 'home_page':
             init = HOME.init.bind(HOME);
+            break;
+        case 'main_page':
+            init = MAIN.init.bind(HOME);
             break;
     }
 }
